@@ -3,6 +3,7 @@ CFLAGS = -Wall
 PROG = hw3
 
 SRCS = hw3.cpp
+OBJS = hw3.o drawFunc.o IOFunc.o
 
 ifeq ($(shell uname),Darwin)
 	LIBS = -framework OpenGL -framework GLUT
@@ -12,14 +13,17 @@ endif
 
 all: $(PROG) 
 
-$(PROG): hw3.o drawFunc.o
-	$(CC) $(CFLAGS) -o $(PROG) hw3.o drawFunc.o $(LIBS)
+$(PROG): $(OBJS)
+	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LIBS)
 
-hw3.o: hw3.cpp drawFunc.h
+hw3.o: hw3.cpp drawFunc.h IOFunc.h
 	$(CC) $(CFLAGS) -c hw3.cpp
 
 drawFunc.o: drawFunc.cpp drawFunc.h
-	g++ -Wall -g -c drawFunc.cpp
+	$(CC) $(CFLAGS) -g -c drawFunc.cpp
+
+IOFunc.o: IOFunc.cpp IOFunc.h
+	$(CC) $(CFLAGS) -g -c IOFunc.cpp
 
 clean:
-	rm -f $(PROG) drawFunc
+	rm -f $(PROG) $(OBJS)

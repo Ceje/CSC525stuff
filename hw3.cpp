@@ -7,6 +7,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include "drawFunc.h"
+#include "IOFunc.h"
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
@@ -20,6 +21,8 @@ using namespace std;
 int main(int argc, char** argv)
 {
     cout << "This is the Main fucntion of HW3!" << endl;
+    
+    fileInit("Stuff.txt");
 
     glutInit(& argc, argv);
     glutInitWindowSize(600, 600);
