@@ -28,7 +28,7 @@ int writeImg()
 
     for(int i=0; i<3*512*512; i++)
     {
-	file << data[i] << " ";
+	file << data[i] << "\n";
     }
     delete  [] data;
     file.close();

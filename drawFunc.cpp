@@ -35,4 +35,15 @@ void drawImage()
 	glVertex2i(0, 250);
 	glVertex2i(0, -250);
     glEnd();
+
+    glBegin(GL_QUADS);
+	glColor3f(1.0, 0.0, 0.0);
+	glVertex2i(-256, -256);
+	glColor3f(0, 1.0, 0);
+	glVertex2i(-256, 256);
+	glColor3f(0, 0, 1.0);
+	glVertex2i(256, 256);
+	glColor3f(1.0, 1.0, 1.0);
+	glVertex2i(256, -256);
+    glEnd();
 }
