@@ -1,6 +1,7 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 
 #ifdef __APPLE__
@@ -11,3 +12,4 @@
 #endif
 
 int fileInit(std::string fname);
+int writeImg();

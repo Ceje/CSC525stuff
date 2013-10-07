@@ -1,4 +1,5 @@
 #include "drawFunc.h"
+#include "IOFunc.h"
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
@@ -20,6 +21,7 @@ void myDisplayCallback()
     drawImage();
 
     glFlush();
+    writeImg();
 }
 
 void drawImage()
