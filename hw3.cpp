@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
+#include <string>
 #include "drawFunc.h"
 #include "IOFunc.h"
 
@@ -21,8 +22,16 @@ using namespace std;
 int main(int argc, char** argv)
 {
     cout << "This is the Main fucntion of HW3!" << endl;
-    
-    fileInit("Stuff.txt");
+   
+    string path;
+
+#ifdef __APPLE__
+    path = "/tmp/savedImg.txt";
+#else
+    path = "C:\\\\TEMP\\savedImg.txt";
+#endif
+
+    fileInit(path); // full path to the file that we want to write to.
 
     glutInit(& argc, argv);
     glutInitWindowSize(600, 600);
