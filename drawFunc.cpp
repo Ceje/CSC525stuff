@@ -1,12 +1,9 @@
 #include "drawFunc.h"
 #include "IOFunc.h"
+#include <cmath>
 
-#ifdef __APPLE__
-#include <OpenGL/OpenGL.h>
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
+GLfloat myPixelMap[512][512][3];
+
 GLubyte pattern[]={
 0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,
 0xf0,0xe0,0xd0,0xc0,0xb0,0xa0,0x90,0x80,0x70,0x60,0x50,0x40,0x30,0x20,0x10,0x00,
@@ -188,6 +185,20 @@ GLubyte bitmap[]={
 
 
 };
+
+void loadPixelMap()
+{
+    for(int y=0; y<512; y++)
+    {
+	for(int x=0; x<512; x++)
+	{
+	    myPixelMap[y][x][0] = 0.0;
+	    myPixelMap[y][x][1] = 0.0;
+	    myPixelMap[y][x][2] = (1.0/512)*x;
+	}
+    }
+}
+
 void myInit()
 {
     glClearColor(1, 1, 1, 0);
@@ -207,7 +218,12 @@ void myDisplayCallback()
 void drawImage()
 {
     glLineWidth(1.0f);
-	//axis
+	
+    glRasterPos2i(-256, -256);
+
+    glDrawPixels(512, 512, GL_RGB, GL_FLOAT, myPixelMap);
+
+    //axis	
     glColor3b(0, 0, 0);
       glBegin(GL_LINES);
 	  glVertex2i(-250, 0);

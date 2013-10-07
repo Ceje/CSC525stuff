@@ -20,9 +20,7 @@
 using namespace std;
 
 int main(int argc, char** argv)
-{
-    cout << "This is the Main fucntion of HW3!" << endl;
-   
+{ 
     string path;
 
 #ifdef __APPLE__
@@ -32,6 +30,8 @@ int main(int argc, char** argv)
 #endif
 
     fileInit(path); // full path to the file that we want to write to.
+
+    loadPixelMap();
 
     glutInit(& argc, argv);
     glutInitWindowSize(600, 600);
