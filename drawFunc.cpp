@@ -194,7 +194,17 @@ void loadPixelMap()
 	{
 	    myPixelMap[y][x][0] = 0.0;
 	    myPixelMap[y][x][1] = 0.0;
-	    myPixelMap[y][x][2] = (1.0/512)*x;
+	    
+	    if(x<256)
+	    {
+		myPixelMap[y][x][0] = (1.0/256)*(256-x);
+		myPixelMap[y][x][2] = (1.0/256)*x;
+	    }
+	    else
+	    {
+		myPixelMap[y][x][1] = (1.0/256)*(x-256);
+		myPixelMap[y][x][2] = (1.0/256)*(512-x);
+	    }
 	}
     }
 }
@@ -242,9 +252,18 @@ void drawImage()
 	  glColor3f(1, 1, 0);
 	  glVertex2i(185, -185);
 	glEnd();
+	glDisable(GL_POLYGON_STIPPLE);
+
+	glColor3f(0.0, 0.0, 0.0);
+	glBegin(GL_QUADS);
+	    glVertex2i(-75, -90);
+	    glVertex2i(65, -90);
+	    glVertex2i(65, -120);
+	    glVertex2i(-75, -120);
+	glEnd();
 	
 	//bitmap
-	glColor3f(0,0,0);
+	glColor3f(1.0,0,0);
 	glRasterPos2i(-32,-70);
 	glPixelStorei(GL_UNPACK_ALIGNMENT,8);
 	glBitmap(64,132,0,0,33,0,bitmap);
