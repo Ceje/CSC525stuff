@@ -1,6 +1,24 @@
-/* This will be the main file.*/
-
-// Now this is a slightly bigger file.
+/*************************************************************************************
+ * Authors:	    CJ Done, Jacob Allen
+ *Course:	    CSC 525/625
+ *Modified By:	    CJ Done, Jacob Allen
+ *Last Mod Date:    10/8/2013
+ *Description:	    Program that draws a very colorful caution sign demoing the use of several
+ *		    OpenGL techniques learned so far this semester.
+ *Notes:	    N/A
+ *Files:	    hw3.cpp, IOFunc.h, IOFunc.cpp, drawFunc.h, drawFunc.cpp (hwProj.sln)
+ *IDE/Compiler:	    Visual Studio 2012 / GNU C++ Compiler g++ (with make)
+ *Instructions for Compilation / Execution:
+ *  Posix complient systems:
+ *	1.  cd /source/directory/
+ *	2.  make
+ *	3.  ./hw3
+ *  Windows Systems
+ *	1.  Double click on hwProj.sln to open the project
+ *	2.  Press Ctrl+F7 to compile
+ *	3.  Press Ctrl+Shift+B to build (compile and link)
+ *	4.  Press Ctrl+F5 to execute
+ *************************************************************************************/
 
 
 #include <iostream>
